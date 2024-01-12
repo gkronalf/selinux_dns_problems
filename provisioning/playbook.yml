@@ -104,6 +104,10 @@
       state: restarted
       enabled: yes
 
+  - name: Execute shell command
+    shell: chcon -R -t named_zone_t /etc/named
+    become: true
+    
 - hosts: client # first client provision
   become: true
   tasks:
